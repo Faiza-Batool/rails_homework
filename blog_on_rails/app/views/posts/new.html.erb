@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+    <% if @post.errors.any? %>
+            <% @post.errors.full_messages.each do |msg|%>
+                <div class="alert alert-warning font-s" role="alert"> 
+                    <%= msg %>
+                </div>
+            <% end%>
+    <% end%>
+
+    <%= form_with(model: @post) do |form|%>
+
+    <div>
+        <%= form.label :title, class:"font-s"%>
+        <br>
+        <%= form.text_field :title, class:"form-control font-s"%>
+    </div>
+    <div>
+        <%= form.label :body, class:"font-s"%>
+        <br>
+        <%= form.text_area :body, class:"form-control font-s" %>
+    </div>
+    <br>
+    <%= form.submit :'Create Post', class: 'btn btn-outline-primary font-s' %>  
+<% end%>
+</div>

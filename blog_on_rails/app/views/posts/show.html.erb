@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <br>
+    <h4 class= "example font-family">
+        <%= @post.title%>
+   </h4>
+    
+    <p class= "example font-s"> 
+        <%= @post.body%>
+    </p>
+
+    <p  class="font-xs">
+    Posted <%= rand(1..59) %> minutes ago
+    </p>
+
+    <%= link_to "Edit", edit_post_path(@post.id) ,:class => 'btn btn-outline-primary font-s' %>
+    <%= link_to "Delete", post_path(@post.id), :class => 'btn btn-outline-primary font-s', method: :delete, data:{confirm:"Are you sure?"} %>
+
+    <%= form_with(model:[@post, @comment]) do |f|%>
+        <div>
+        <br>
+            <h5 class="font"><%= f.label :Comment %></h5>
+            <%= f.text_area :body, class:"form-control font-s", :placeholder => "what's on your mind?" %>
+        </div>
+        <br>
+        <%= f.submit :Submit, class:'btn btn-outline-primary font-s'%>
+    <% end %>
+    <br>
+
+    <% if @comment.errors.any? %>
+        <% @comment.errors.full_messages.each do |msg| %>
+            <div class="alert alert-warning font-s" role="alert">    
+                <%= msg%>
+            </div>
+        <% end%>
+    <% end%>
+    
+    <% @comments.each do |comment| %>
+        <div class= "example font-s">
+        <%= comment.body%>
+        </div>
+
+        <p class="font-xs">
+            Commented <%= rand(1..59) %> minutes ago •
+            <%= link_to "Delete", post_comment_path(@post.id, comment.id), class: 'link font-xs', method: :delete, data:{confirm: "Are you sure?"}  %>
+        </p>
+    <% end %>
+    <hr>
+</div>
+
+
+
+
+
+
