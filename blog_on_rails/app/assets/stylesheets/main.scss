@@ -1,0 +1,50 @@
+.header{
+    font-family:sans-serif;
+    font-size: medium; 
+ }
+
+ .heading{
+    font-family: sans-serif;
+    font-size:large;
+
+    margin-top: 20px;
+    margin-right:5px ;
+    margin-left: 5px;
+    margin-bottom: 0px;
+}
+
+.ml{
+    padding: 0pt;
+    margin-left: 0pt;
+}
+
+
+.font-family{
+    font-family:sans-serif; 
+}
+.font{
+    font-family:sans-serif;
+    font-size: medium; 
+}
+
+ .font-s{
+    font-family:sans-serif;
+    font-size: small;  
+ }
+
+ .font-xs{
+    font-family:sans-serif;
+    font-size:x-small;  
+ }
+
+
+.body{
+  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.example {
+    overflow-wrap: break-word;
+  }

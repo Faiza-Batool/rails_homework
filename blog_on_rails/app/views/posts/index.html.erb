@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row">
+      
+        <% @posts.each do |post|%>
+        
+            <div class="col ">
+                <br>
+                <div class="card " style="width: 22rem" >
+                    <h3 class=" heading" >
+                        <%= link_to post.title, post_path(post.id), :class => "card-title col" %>
+                    </h3>
+                    <div class="card-body body font-s">
+                            <%= post.body%>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+        <% end %>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  
