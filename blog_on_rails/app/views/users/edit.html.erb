@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+<br>
+<h5 class = "font_family">Edit User </h5>
+
+<%= form_with model: @user do |form| %>
+    
+     <% if @user.errors.any?%>
+    <div class="alert alert-warning font-s" role="alert"> 
+        <p><%= @user.errors.full_messages.join(', ')%></p>
+    </div>
+    <% end %>
+
+    <div>
+        <%= form.label :first_name, class:"font-s"%>
+        <%= form.text_field :first_name, class:"form-control font-s"%>
+    </div>
+    <div>
+        <%= form.label :last_name, class:"font-s"%>
+        <%= form.text_field :last_name, class:"form-control font-s"%>
+    </div>
+    <div>
+        <%= form.label :email, class:"font-s"%>
+        <%= form.text_field :email, class:"form-control font-s"%>
+    </div>
+    <br>
+    <%= form.submit "update", class: 'btn btn-outline-primary font-s'%>
+<% end %>
+<br>
+<%=  link_to  'Change Password',update_password_path(current_user) , method: :GET, class: 'btn btn-outline-primary mr font-s'  %></li>
+
