@@ -48,11 +48,11 @@ class UsersController < ApplicationController
                 flash[:notice] =  "Password changed successfully "
                 redirect_to root_path 
                else
-                flash[:alert] = "passwrod not matched "
+                flash[:alert] = "new password and current password should be same "
                 render  :edit_password
                end
             else
-                flash[:alert] = "new and old cant be same "
+                flash[:alert] = "New and old password shouldn't be same "
                 render  :edit_password
             end
         else
