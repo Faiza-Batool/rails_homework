@@ -9,11 +9,15 @@
     </p>
 
     <p  class="font-xs">
-    Posted <%= rand(1..59) %> minutes ago
+    Posted <%= rand(1..59) %> minutes ago •
+   
+    Created by: <%= @post.user.full_name %>
     </p>
 
-    <%= link_to "Edit", edit_post_path(@post.id) ,:class => 'btn btn-outline-primary font-s' %>
-    <%= link_to "Delete", post_path(@post.id), :class => 'btn btn-outline-primary font-s', method: :delete, data:{confirm:"Are you sure?"} %>
+    <% if can?(:crud, @post)%>
+        <%= link_to "Edit", edit_post_path(@post.id) ,:class => 'btn btn-outline-primary font-s' %>
+        <%= link_to "Delete", post_path(@post.id), :class => 'btn btn-outline-primary font-s', method: :delete, data:{confirm:"Are you sure?"} %>
+    <% end %>
 
     <%= form_with(model:[@post, @comment]) do |f|%>
         <div>
@@ -40,9 +44,15 @@
         </div>
 
         <p class="font-xs">
-            Commented <%= rand(1..59) %> minutes ago •
-            <%= link_to "Delete", post_comment_path(@post.id, comment.id), class: 'link font-xs', method: :delete, data:{confirm: "Are you sure?"}  %>
+            Commented <%= rand(1..59) %> minutes ago 
+
+            <% if can?(:crud, comment)%>
+            •<%= link_to "Delete", post_comment_path(@post.id, comment.id), class: 'link font-xs', method: :delete, data:{confirm: "Are you sure?"}  %>
+        •
+        Created by: <%= comment.user.full_name %>
         </p>
+        <% end %>
+
     <% end %>
     <hr>
 </div>
