@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     
-    # before_action :authorize_user!, only: [:edit, :update, :edit_password, :change_password]
-    before_action :authorize_user!, only: [:update, :change_password]
+    before_action :authorize_user!, only: [:edit, :update, :edit_password, :change_password]
 
     def new
         @user = User.new
